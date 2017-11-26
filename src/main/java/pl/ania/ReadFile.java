@@ -18,20 +18,23 @@ public class ReadFile {
     public static void main(String[] args) throws IOException, InterruptedException {
         File source = new File(sourcePath);
         File dest = new File(destPath);
+        File directory = new File("C:\\Users\\lukasz\\Desktop\\Ania\\files");
+
 
         while (true){
-            File directory = new File("C:\\Users\\lukasz\\Desktop\\Ania\\files");
             if (directory.list().length == 0) {
-                System.out.println("robi test");
+                System.out.println("import pliku");
             }
             if (source.exists()) {
-                System.out.println("skasowano plik");
                 copyFile(source, dest);
                 source.delete();
+                System.out.println("skasowano plik");
+
             }
             Thread.sleep(2000);
             if (directory.list().length > 0){
                 System.out.println("katalog nie jest pusty");
+                System.out.println("test zawartości pliku");
                 FileUtils.cleanDirectory(directory);
             }
         }
